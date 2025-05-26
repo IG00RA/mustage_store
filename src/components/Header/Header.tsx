@@ -1,31 +1,35 @@
 "use client";
-import { useState } from "react";
+
 import { GoBell } from "react-icons/go";
 import { FaChevronUp } from "react-icons/fa";
 import Icon from "@/helpers/Icon";
 import { useTranslations } from "next-intl";
 import clsx from "clsx";
 
-const Header = () => {
+interface HeaderProps {
+  isCollapsed: boolean;
+  setIsCollapsed: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Header: React.FC<HeaderProps> = ({ isCollapsed, setIsCollapsed }) => {
   const t = useTranslations("Header");
-  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const togglePanel = () => setIsCollapsed((prev) => !prev);
 
   return (
     <div
       className={clsx(
-        "flex flex-col self-stretch bg-[#FFFFFF] transition-transform duration-300 ease-in-out mb-[24px]",
+        "fixed top-0 left-0 w-full z-50 flex flex-col bg-[#FFFFFF] shadow-md transition-transform duration-300 ease-in-out",
         {
-          "-translate-y-[65px]": isCollapsed,
-          "translate-y-0": !isCollapsed,
+          "-translate-y-[65px] mb-[-50px]": isCollapsed,
+          "translate-y-0 mb-[24px]": !isCollapsed,
         }
       )}
     >
       <div className="flex items-center self-stretch pl-[18px] pr-[18px] mb-[8px] pt-4">
         <div className="flex shrink-0 items-center gap-2">
           <Icon name="icon-logo" width={53} height={44} />
-          <p className="text-[14px] max-w-[77px] font-medium">
+          <p className="text-[14px] max-w-[77px] font-medium text-mainText">
             MUSTAGE<span className="block font-extralight">.STORE</span>
           </p>
         </div>

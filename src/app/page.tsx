@@ -5,16 +5,27 @@ import Header from "@/components/Header/Header";
 import UserContainer from "@/components/UserContainer/UserContainer";
 import Search from "@/components/Search/Search";
 import { Page } from "@/components/Page";
+import { useState } from "react";
+import clsx from "clsx";
+
 export default function Home() {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
   return (
     <Page back={false}>
-      <div className="flex flex-col bg-[#FFFFFF]">
-        <div className="flex flex-col items-center self-stretch bg-[#FFFFFF] h-[3449px]">
-          <Header />
-          <UserContainer />
-          <Search />
-          <Hero />
-        </div>
+      <div
+        className={clsx(
+          "flex flex-col bg-background transition-padding duration-300 ease-in-out",
+          {
+            "pt-14": isCollapsed,
+            "pt-[100px]": !isCollapsed,
+          }
+        )}
+      >
+        <Header isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+        <UserContainer />
+        <Search />
+        <Hero />
       </div>
     </Page>
   );

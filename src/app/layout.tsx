@@ -1,6 +1,5 @@
-import type { PropsWithChildren } from "react";
 import type { Metadata } from "next";
-import { getLocale, getMessages } from "next-intl/server";
+import { getMessages } from "next-intl/server";
 
 import { Root } from "@/components/Root/Root";
 import { I18nProvider } from "@/core/i18n/provider";
@@ -9,7 +8,6 @@ import { Inter } from "next/font/google";
 
 import "@telegram-apps/telegram-ui/dist/styles.css";
 import "normalize.css/normalize.css";
-import "./_assets/globals.css";
 import "../styles/variables.css";
 import "../styles/globals.css";
 
