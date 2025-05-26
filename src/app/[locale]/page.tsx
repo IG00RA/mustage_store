@@ -6,7 +6,7 @@ const MobilePage = () => {
     <div className="flex flex-col bg-[#FFFFFF]">
       <div className="flex flex-col items-center self-stretch bg-[#FFFFFF] h-[3449px]">
         <Header />
-        <Hero />
+        {/* <Hero /> */}
       </div>
     </div>
   );

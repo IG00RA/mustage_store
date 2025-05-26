@@ -2,14 +2,19 @@
   --font_inter: "Inter", serif;
   --font_sfPro: "SF-Pro-Display", sans-serif;
 
-  --background: #fefefe;
+  --background: #fff;
   --foreground: #fff;
-  --main_text_color: #404969;
-  --second_text_color: #000000;
+  --main_text_color: #050818;
+  --accent_text_color: #007aff;
+  --second_text_color: #a2acb0;
 
   --box_shadow: 0px 12px 28.3px 0px rgba(124, 122, 151, 0.25);
   --main_gradient: linear-gradient(180deg, #94bfff 0%, #5390ec 100%), #d9d9d9;
   --modal_overlay: rgba(235, 244, 255, 0.7);
+
+  --icons_back: #007aff;
+
+  --btns_back: rgba(67, 120, 255, 0.1);
 
   --fs_small: 14px;
   --fs_xsmall: 16px;

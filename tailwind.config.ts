@@ -35,7 +35,10 @@ const config: Config = {
         foreground: "var(--foreground)",
         mainText: "var(--main_text_color)",
         secondText: "var(--second_text_color)",
+        accentText: "var(--accent_text_color)",
         overlay: "var(--modal_overlay)",
+        btnsBack: "var(--btns_back)",
+        iconsBack: "var(--icons_back)",
       },
       boxShadow: {
         main: "var(--box_shadow)",
