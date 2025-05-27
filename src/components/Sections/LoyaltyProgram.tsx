@@ -1,11 +1,9 @@
 "use client";
 
 import { Button } from "@telegram-apps/telegram-ui";
-
-import { useState, useMemo, useEffect } from "react";
-import { initDataState, type User } from "@telegram-apps/sdk-react";
+import { FaChevronRight } from "react-icons/fa";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
-import Icon from "@/helpers/Icon";
 import RatingBar from "@/components/Rating/Rating";
 
 const LoyaltyProgram = () => {
@@ -18,67 +16,52 @@ const LoyaltyProgram = () => {
 
   return (
     <div
-      className="pt-[24px] pb-[24px]"
+      className="flex pt-[24px] pb-[24px] flex-col"
       style={{
         borderBottom: "1px solid rgba(0, 0, 0, 0.10)",
       }}
     >
-      <h2 className="px-3 text-mainText text-[14px] font-medium leading-[150%]">
+      <h2 className="px-3 text-mainText text-[14px] font-medium leading-[150%] mb-6">
         {t("loyaltyProgram")}
       </h2>
-      <div className="self-stretch pt-[8px] pb-[8px]">
-        <div className="self-stretch mb-[16px]">
-          {/* <RatingBar rating={1.7} /> */}
-          <div className="self-stretch">
-            <div className="flex flex-col items-start self-stretch mb-[8px]">
-              <div className="flex items-start self-stretch mb-[8px]">
-                <div className="flex shrink-0 items-center pr-[4px] mr-[16px]">
-                  <span className="text-[#292929] text-[12px] mr-[9px]">
-                    {t("level")}
-                  </span>
-                  <span className="text-[#292929] text-[14px] font-bold">
-                    {level}
-                  </span>
-                </div>
-                <div className="flex shrink-0 items-center pr-[3px]">
-                  <span className="text-[#292929] text-[12px] mr-[10px]">
-                    {t("status")}
-                  </span>
-                  <span className="text-[#292929] text-[14px] font-bold">
-                    {status}
-                  </span>
-                </div>
-              </div>
-              <div className="flex items-center pr-[3px]">
-                <span className="text-[#292929] text-[12px] mr-[9px]">
-                  {t("discount")}
-                </span>
-                <span className="text-[#292929] text-[14px] font-bold">
-                  {discount}%
-                </span>
-              </div>
-            </div>
-            <div className="flex items-start self-stretch">
-              <span className="text-[#292929] text-[12px] w-[216px] mr-[8px]">
-                {t("nextLevel")}
-              </span>
-              <span className="text-[#292929] text-[14px] font-bold mt-[11px]">
-                ${nextLevel}
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col items-end self-stretch">
-          <button
-            className="flex items-center bg-[#007AFF] text-left pt-[8px] pb-[8px] pl-[12px] pr-[12px] rounded-[20px] border-0"
-            onClick={() => alert("Pressed!")}
-          >
-            <span className="text-[#007AFF] text-[14px] font-bold mr-[9px]">
-              {t("btn")}
-            </span>
-          </button>
-        </div>
+      <RatingBar rating={2.7} />
+
+      <div className="flex mt-6 shrink-0 items-center gap-4 mb-2">
+        <p className="text-mainText text-[12px] font-normal">
+          {t("level")}{" "}
+          <span className="text-mainText text-[14px] font-bold blok ml-1">
+            {level}
+          </span>
+        </p>
+        <p className="text-mainText text-[12px] mr-[10px]">
+          {t("status")}{" "}
+          <span className="text-mainText text-[14px] font-bold ml-1">
+            {status}
+          </span>
+        </p>
       </div>
+      <p className="text-mainText text-[12px] font-normal mb-2">
+        {t("discount")}{" "}
+        <span className="text-mainText text-[14px] font-bold blok ml-1">
+          {discount}%
+        </span>
+      </p>
+      <div className="flex shrink-0 items-center gap-[6px] mb-2">
+        <p className="text-mainText text-[12px] mr-[10px] mb-2 max-w-[57%]">
+          {t("nextLevel")}
+        </p>
+        <span className="text-mainText text-[14px] font-bold">
+          ${nextLevel}
+        </span>
+      </div>
+      <Button
+        className="flex-1 ml-auto bg-[rgba(0,122,255,0.03)]  text-accentText"
+        after={<FaChevronRight size={16} color="#007aff" />}
+        mode="bezeled"
+        size="s"
+      >
+        {t("btn")}
+      </Button>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import { Page } from "@/components/Page";
 import { useState } from "react";
 import clsx from "clsx";
 import LoyaltyProgram from "@/components/Sections/LoyaltyProgram";
+import TopProducts from "@/components/Sections/TopProducts";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -27,7 +28,7 @@ export default function Home() {
         <UserContainer />
         <Search />
         <LoyaltyProgram />
-
+        <TopProducts />
         {/* <Hero /> */}
       </div>
     </Page>
