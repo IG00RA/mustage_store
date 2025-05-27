@@ -1,12 +1,13 @@
 "use client";
 
-import Hero from "@/components/Hero/Hero";
-import Header from "@/components/Header/Header";
-import UserContainer from "@/components/UserContainer/UserContainer";
+import Hero from "@/components/Sections/Hero";
+import Header from "@/components/Sections/Header";
+import UserContainer from "@/components/Sections/UserContainer";
 import Search from "@/components/Search/Search";
 import { Page } from "@/components/Page";
 import { useState } from "react";
 import clsx from "clsx";
+import LoyaltyProgram from "@/components/Sections/LoyaltyProgram";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -15,17 +16,19 @@ export default function Home() {
     <Page back={false}>
       <div
         className={clsx(
-          "flex flex-col bg-background transition-padding duration-300 ease-in-out",
+          "max-w-container mx-auto flex flex-col bg-background transition-padding duration-300 ease-in-out",
           {
-            "pt-14": isCollapsed,
-            "pt-[100px]": !isCollapsed,
+            "pt-16": isCollapsed,
+            "pt-[108px]": !isCollapsed,
           }
         )}
       >
         <Header isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
         <UserContainer />
         <Search />
-        <Hero />
+        <LoyaltyProgram />
+
+        {/* <Hero /> */}
       </div>
     </Page>
   );

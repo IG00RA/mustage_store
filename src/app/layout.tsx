@@ -1,6 +1,4 @@
-import type { Metadata } from "next";
-import { getMessages } from "next-intl/server";
-
+import { getLocale } from "next-intl/server";
 import { Root } from "@/components/Root/Root";
 import { I18nProvider } from "@/core/i18n/provider";
 import localFont from "next/font/local";
@@ -8,8 +6,9 @@ import { Inter } from "next/font/google";
 
 import "@telegram-apps/telegram-ui/dist/styles.css";
 import "normalize.css/normalize.css";
-import "../styles/variables.css";
 import "../styles/globals.css";
+import "../styles/variables.css";
+import { PropsWithChildren } from "react";
 
 const localeMetadata: Record<
   string,
@@ -29,14 +28,9 @@ const localeMetadata: Record<
   },
 };
 
-type Props = {
-  params: Promise<{ locale: string }>;
-};
 
-export const generateMetadata = async ({
-  params,
-}: Props): Promise<Metadata> => {
-  const { locale } = await params;
+export const generateMetadata = async () => {
+  const locale = await getLocale();
   const metadataValues = localeMetadata[locale] || localeMetadata.ru;
   const url = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   return {
@@ -134,18 +128,8 @@ const sfPro = localFont({
   variable: "--font_sfPro",
 });
 
-export default async function RootLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}) {
-  const resolvedParams = await params;
-  const { locale } = resolvedParams;
-
-  const messages = await getMessages({ locale });
-
+export default async function RootLayout({ children }: PropsWithChildren) {
+  const locale = await getLocale();
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${inter.variable} ${sfPro.variable}`}>

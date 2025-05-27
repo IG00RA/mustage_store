@@ -17,16 +17,16 @@ const Header: React.FC<HeaderProps> = ({ isCollapsed, setIsCollapsed }) => {
   const togglePanel = () => setIsCollapsed((prev) => !prev);
 
   return (
-    <div
+    <header
       className={clsx(
-        "fixed top-0 left-0 w-full z-50 flex flex-col bg-[#FFFFFF] shadow-md transition-transform duration-300 ease-in-out",
+        "fixed top-0 left-0 w-full z-50 flex flex-col bg-background shadow-md transition-transform duration-300 ease-in-out",
         {
-          "-translate-y-[65px] mb-[-50px]": isCollapsed,
-          "translate-y-0 mb-[24px]": !isCollapsed,
+          "-translate-y-[65px]": isCollapsed,
+          "translate-y-0": !isCollapsed,
         }
       )}
     >
-      <div className="flex items-center self-stretch pl-[18px] pr-[18px] mb-[8px] pt-4">
+      <div className="flex items-center justify-between px-[4.45%] pt-4 pb-2">
         <div className="flex shrink-0 items-center gap-2">
           <Icon name="icon-logo" width={53} height={44} />
           <p className="text-[14px] max-w-[77px] font-medium text-mainText">
@@ -77,7 +77,7 @@ const Header: React.FC<HeaderProps> = ({ isCollapsed, setIsCollapsed }) => {
           />
         </button>
       </div>
-    </div>
+    </header>
   );
 };
 

@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.circleWrapper {
+  position: relative;
+  z-index: 2;
+  margin-right: -2px;
+  margin-left: -2px;
+}
+
+.circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #e5e7eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 2;
+  transition: background-color 0.3s;
+  border: 2px solid transparent;
+}
+
+.filled {
+  background-color: #007aff;
+  border: 2px solid #fff;
+}
+
+.connectorWrapper {
+  width: 100%;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+  position: relative;
+}
+
+.connector {
+  height: 10px;
+  width: 100%;
+  background-color: #e5e7eb;
+  transition: background 0.3s;
+}
+
+.connectorBackground {
+  width: 100%;
+  height: 100%;
+  background-color: #e5e7eb;
+  border-radius: 2px;
+}
+
+.connectorFill {
+  height: 100%;
+  background-color: #007aff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  transition: width 0.3s;
+}
