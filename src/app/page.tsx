@@ -10,6 +10,9 @@ import clsx from "clsx";
 import LoyaltyProgram from "@/components/Sections/LoyaltyProgram";
 import TopProducts from "@/components/Sections/TopProducts";
 import Review from "@/components/Sections/Review";
+import Banners from "@/components/Sections/Banners";
+import Links from "@/components/Sections/Links/Links";
+import Social from "@/components/Sections/Social";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -30,7 +33,14 @@ export default function Home() {
         <Search />
         <LoyaltyProgram />
         <TopProducts />
-        <Review />
+      </div>
+      <Review />
+      <div
+        className={clsx("max-w-container mx-auto flex flex-col bg-background")}
+      >
+        <Banners />
+        <Links />
+        <Social />
         {/* <Hero /> */}
       </div>
     </Page>

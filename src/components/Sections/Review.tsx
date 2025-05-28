@@ -7,7 +7,6 @@ import { useTranslations } from "next-intl";
 import Icon from "@/helpers/Icon";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Swiper as SwiperInstance } from "swiper";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -23,15 +22,12 @@ const Review = () => {
   const [nextLevel, setNextLevel] = useState<string>("154");
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [swiperInstance, setSwiperInstance] = useState<SwiperInstance | null>(
-    null
-  );
 
   const t = useTranslations("Review");
 
   return (
     <div>
-      <div className="flex justify-between items-center pb-4">
+      <div className="flex justify-between items-center pb-4 max-w-container mx-auto">
         <Button
           className="text-[rgba(0,0,0,0.80)] border-[1px] border-solid border-[#0000000D]"
           before={<Icon name="icon-hide" width={19.5} height={15} />}
@@ -67,7 +63,6 @@ const Review = () => {
           },
         }}
         onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex)}
-        onSwiper={(swiper: SwiperInstance) => setSwiperInstance(swiper)}
         modules={[Pagination]}
         style={{
           paddingBottom: "48px",
@@ -91,9 +86,16 @@ const Review = () => {
         ))}
         <div className="swiper-pagination custom-dots"></div>
       </Swiper>
-      <Button className="w-[100%]" mode="filled" size="s">
-        {t("makeReview")}
-      </Button>
+      <div
+        className="max-w-container mx-auto pb-6 mb-6"
+        style={{
+          borderBottom: "1px solid rgba(0, 0, 0, 0.10)",
+        }}
+      >
+        <Button className="w-[100%]" mode="filled" size="s">
+          {t("makeReview")}
+        </Button>
+      </div>
     </div>
   );
 };

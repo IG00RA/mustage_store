@@ -24,7 +24,7 @@ const LoyaltyProgram = () => {
       <h2 className="px-3 text-mainText text-[14px] font-medium leading-[150%] mb-6">
         {t("loyaltyProgram")}
       </h2>
-      <RatingBar rating={2.7} />
+      <RatingBar rating={5.7} />
 
       <div className="flex mt-6 shrink-0 items-center gap-4 mb-2">
         <p className="text-mainText text-[12px] font-normal">
