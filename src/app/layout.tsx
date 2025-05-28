@@ -4,8 +4,8 @@ import { I18nProvider } from "@/core/i18n/provider";
 import localFont from "next/font/local";
 import { Inter } from "next/font/google";
 
-import "@telegram-apps/telegram-ui/dist/styles.css";
 import "normalize.css/normalize.css";
+import "@telegram-apps/telegram-ui/dist/styles.css";
 import "../styles/globals.css";
 import "../styles/variables.css";
 import { PropsWithChildren } from "react";
@@ -27,7 +27,6 @@ const localeMetadata: Record<
       "вакансии, работа, Mustage Team, digital-маркетинг, affiliate-маркетинг, карьера",
   },
 };
-
 
 export const generateMetadata = async () => {
   const locale = await getLocale();
