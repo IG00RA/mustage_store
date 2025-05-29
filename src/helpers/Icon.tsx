@@ -1,5 +1,3 @@
-import styles from './Icon.module.css';
-
 interface IconProps {
   name: string;
   width?: number;
@@ -12,12 +10,12 @@ const Icon: React.FC<IconProps> = ({
   name,
   width = 24,
   height = 24,
-  color = 'currentColor',
+  color = "currentColor",
   className,
 }) => {
   return (
     <svg
-      className={`${className} ${styles.icon}`}
+      className={`transition-colors shrink-0 ${className}`}
       width={width}
       height={height}
       fill={color}

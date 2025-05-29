@@ -1,21 +1,23 @@
-'use client';
+"use client";
 
-import { type PropsWithChildren, useEffect } from 'react';
+import { type PropsWithChildren, useEffect } from "react";
 import {
   initData,
   miniApp,
   useLaunchParams,
   useSignal,
-} from '@telegram-apps/sdk-react';
-import { TonConnectUIProvider } from '@tonconnect/ui-react';
-import { AppRoot } from '@telegram-apps/telegram-ui';
+} from "@telegram-apps/sdk-react";
+import { TonConnectUIProvider } from "@tonconnect/ui-react";
+import { AppRoot } from "@telegram-apps/telegram-ui";
 
-import { ErrorBoundary } from '@/components/ErrorBoundary';
-import { ErrorPage } from '@/components/ErrorPage';
-import { useDidMount } from '@/hooks/useDidMount';
-import { setLocale } from '@/core/i18n/locale';
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { ErrorPage } from "@/components/ErrorPage";
+import { useDidMount } from "@/hooks/useDidMount";
+import { setLocale } from "@/core/i18n/locale";
 
-import './styles.css';
+import "./styles.css";
+import Image from "next/image";
+import logo from "@/img/logo.svg";
 
 function RootInner({ children }: PropsWithChildren) {
   const lp = useLaunchParams();
@@ -31,9 +33,9 @@ function RootInner({ children }: PropsWithChildren) {
   return (
     <TonConnectUIProvider manifestUrl="/tonconnect-manifest.json">
       <AppRoot
-        appearance={isDark ? 'dark' : 'light'}
+        appearance={isDark ? "dark" : "light"}
         platform={
-          ['macos', 'ios'].includes(lp.tgWebAppPlatform) ? 'ios' : 'base'
+          ["macos", "ios"].includes(lp.tgWebAppPlatform) ? "ios" : "base"
         }
       >
         {children}
@@ -53,6 +55,15 @@ export function Root(props: PropsWithChildren) {
       <RootInner {...props} />
     </ErrorBoundary>
   ) : (
-    <div className="root__loading">Loading</div>
+    <div className="logo_wrap">
+      <Image
+        src={logo}
+        alt="Mustage logo"
+        className="logo"
+        width={0}
+        height={0}
+        sizes="100vw"
+      />
+    </div>
   );
 }
