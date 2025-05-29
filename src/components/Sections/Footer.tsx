@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { IoIosInformationCircle } from "react-icons/io";
 import Icon from "@/helpers/Icon";
@@ -16,10 +16,15 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ isCollapsed, setIsCollapsed }) => {
   const t = useTranslations("Footer");
 
+  const footerRef = useRef<HTMLElement | null>(null);
+
   const togglePanel = () => setIsCollapsed((prev) => !prev);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as HTMLElement;
+      if (!footerRef.current || !footerRef.current.contains(target)) return;
+
       const x =
         (e as MouseEvent).pageX ?? (e as TouchEvent).touches?.[0]?.pageX;
       const y =
@@ -43,7 +48,6 @@ const Footer: React.FC<FooterProps> = ({ isCollapsed, setIsCollapsed }) => {
       document.removeEventListener("touchstart", handleClick);
     };
   }, []);
-
   return (
     <>
       <style jsx global>{`
@@ -77,6 +81,7 @@ const Footer: React.FC<FooterProps> = ({ isCollapsed, setIsCollapsed }) => {
       `}</style>
 
       <footer
+        ref={footerRef}
         className={clsx(
           "fixed bottom-0 left-0 w-full z-50 flex flex-col bg-background shadow-md transition-transform duration-300 ease-in-out",
           {
@@ -112,7 +117,7 @@ const Footer: React.FC<FooterProps> = ({ isCollapsed, setIsCollapsed }) => {
         >
           {t("panelText")}
         </div>
-        <div
+        <nav
           className={clsx("flex items-center justify-around", {
             "pacity-100": !isCollapsed,
             "opacity-0": isCollapsed,
@@ -139,7 +144,7 @@ const Footer: React.FC<FooterProps> = ({ isCollapsed, setIsCollapsed }) => {
           >
             <Icon name="icon-person" width={24} height={24} />
           </InlineButtonsItem>
-        </div>
+        </nav>
       </footer>
     </>
   );

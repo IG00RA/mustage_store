@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({ isCollapsed, setIsCollapsed }) => {
             MUSTAGE<span className="block font-extralight">.STORE</span>
           </p>
         </div>
-        <div className="flex flex-1 items-center justify-end gap-2">
+        <nav className="flex flex-1 items-center justify-end gap-2">
           <button className="flex flex-col shrink-0 bg-btnsBack rounded-[10px] border-0 w-10 h-10 items-center justify-center">
             <span className="text-accentText text-[12px] font-medium">UA</span>
           </button>
@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ isCollapsed, setIsCollapsed }) => {
           <button className="flex flex-col shrink-0 bg-btnsBack rounded-[10px] border-0 w-10 h-10 items-center justify-center">
             <Icon name="icon-shopping-basket" width={24} height={24} />
           </button>
-        </div>
+        </nav>
       </div>
 
       <div

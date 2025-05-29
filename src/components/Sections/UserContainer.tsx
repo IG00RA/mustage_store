@@ -6,6 +6,7 @@ import { useState, useMemo, useEffect } from "react";
 import { initDataState, type User } from "@telegram-apps/sdk-react";
 import { useTranslations } from "next-intl";
 import Icon from "@/helpers/Icon";
+import { Link } from "../Link/Link";
 
 function getUserName(user: User): string {
   const firstName = user?.first_name || "";
@@ -61,9 +62,11 @@ const UserContainer = () => {
           </Button>
         </div>
       </div>
-      <span className="text-accentText text-3 underline decoration-solid font-normal">
-        {t("howSave")}
-      </span>
+      <Link href={"/"}>
+        <span className="text-accentText text-3 underline decoration-solid font-normal">
+          {t("howSave")}
+        </span>
+      </Link>
     </div>
   );
 };
