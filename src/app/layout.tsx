@@ -9,6 +9,7 @@ import "@telegram-apps/telegram-ui/dist/styles.css";
 import "../styles/globals.css";
 import "../styles/variables.css";
 import { PropsWithChildren } from "react";
+import MainLayout from "@/Pages/main/MainLayout";
 
 const localeMetadata: Record<
   string,
@@ -133,7 +134,9 @@ export default async function RootLayout({ children }: PropsWithChildren) {
     <html lang={locale} suppressHydrationWarning>
       <body className={`${inter.variable} ${sfPro.variable}`}>
         <I18nProvider>
-          <Root>{children}</Root>
+          <Root>
+            <MainLayout>{children}</MainLayout>
+          </Root>
         </I18nProvider>
       </body>
     </html>

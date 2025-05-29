@@ -110,26 +110,14 @@ const TopProducts = () => {
               sizes="100vw"
             />
           </button>
-          <button
-            type="button"
-            onClick={setGridView}
-            className={`p-2 rounded-[10px] transition-colors duration-200 ${
-              viewMode === "grid" ? "bg-btnsBack" : "bg-transparent"
-            }`}
-          >
+          <button type="button" onClick={setGridView}>
             <Icon
               name={viewMode === "grid" ? "icon-grid-fill" : "icon-grid"}
               width={24}
               height={24}
             />
           </button>
-          <button
-            type="button"
-            onClick={setListView}
-            className={`p-2 rounded-[10px] transition-colors duration-200 ${
-              viewMode === "list" ? "bg-btnsBack" : "bg-transparent"
-            }`}
-          >
+          <button type="button" onClick={setListView}>
             <Icon
               name={
                 viewMode === "list" ? "icon-grid-list" : "icon-grid-list-emp"
@@ -146,7 +134,7 @@ const TopProducts = () => {
         } ${
           viewMode === "grid"
             ? "grid grid-cols-2 gap-y-4 gap-x-0"
-            : "flex flex-col"
+            : "flex flex-col gap-4"
         }`}
       >
         {products.map((product, index) => (
