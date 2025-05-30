@@ -5,10 +5,6 @@ import {
   default as NextLink,
 } from "next/link";
 
-import { classNames } from "@/css/classnames";
-
-import "./Link.css";
-
 export interface LinkProps
   extends NextLinkProps,
     Omit<JSX.IntrinsicElements["a"], "href"> {}
@@ -48,12 +44,6 @@ export const Link: FC<LinkProps> = ({
   );
 
   return (
-    <NextLink
-      {...rest}
-      href={href}
-      onClick={onClick}
-      // className={classNames(className, "link")}
-      className={classNames(className)}
-    />
+    <NextLink {...rest} href={href} onClick={onClick} className={className} />
   );
 };

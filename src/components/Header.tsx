@@ -5,6 +5,7 @@ import { FaChevronUp } from "react-icons/fa";
 import Icon from "@/helpers/Icon";
 import { useTranslations } from "next-intl";
 import clsx from "clsx";
+import { Link } from "./Link/Link";
 
 interface HeaderProps {
   isCollapsed: boolean;
@@ -27,12 +28,12 @@ const Header: React.FC<HeaderProps> = ({ isCollapsed, setIsCollapsed }) => {
       )}
     >
       <div className="flex items-center justify-between px-[4.45%] pt-4 pb-2">
-        <div className="flex shrink-0 items-center gap-2">
+        <Link className="flex shrink-0 items-center gap-2" href={"/"}>
           <Icon name="icon-logo" width={53} height={44} />
           <p className="text-[14px] max-w-[77px] font-medium text-mainText">
             MUSTAGE<span className="block font-extralight">.STORE</span>
           </p>
-        </div>
+        </Link>
         <nav className="flex flex-1 items-center justify-end gap-2">
           <button className="flex flex-col shrink-0 bg-btnsBack rounded-[10px] border-0 w-10 h-10 items-center justify-center">
             <span className="text-accentText text-[12px] font-medium">UA</span>

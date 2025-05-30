@@ -7,6 +7,7 @@ import Icon from "@/helpers/Icon";
 import { useTranslations } from "next-intl";
 import clsx from "clsx";
 import { InlineButtonsItem } from "@telegram-apps/telegram-ui/dist/components/Blocks/InlineButtons/components/InlineButtonsItem/InlineButtonsItem";
+import { Link } from "./Link/Link";
 
 interface FooterProps {
   isCollapsed: boolean;
@@ -123,27 +124,33 @@ const Footer: React.FC<FooterProps> = ({ isCollapsed, setIsCollapsed }) => {
             "opacity-0": isCollapsed,
           })}
         >
-          <InlineButtonsItem
-            className="flex-1 text-secondText hover:text-accentText transition-colors"
-            mode="plain"
-            text={t("catalog")}
-          >
-            <Icon name="icon-shop" width={24} height={24} />
-          </InlineButtonsItem>
-          <InlineButtonsItem
-            className="flex-1 text-secondText hover:text-accentText transition-colors"
-            mode="plain"
-            text={t("support")}
-          >
-            <IoIosInformationCircle size={20} />
-          </InlineButtonsItem>
-          <InlineButtonsItem
-            className="flex-1 text-secondText hover:text-accentText transition-colors"
-            mode="plain"
-            text={t("cabinet")}
-          >
-            <Icon name="icon-person" width={24} height={24} />
-          </InlineButtonsItem>
+          <Link className="flex flex-1" href={"catalog"}>
+            <InlineButtonsItem
+              className="flex-1 text-secondText hover:text-accentText transition-colors"
+              mode="plain"
+              text={t("catalog")}
+            >
+              <Icon name="icon-shop" width={24} height={24} />
+            </InlineButtonsItem>
+          </Link>
+          <Link className="flex flex-1" href={"catalog"}>
+            <InlineButtonsItem
+              className="flex-1 text-secondText hover:text-accentText transition-colors"
+              mode="plain"
+              text={t("support")}
+            >
+              <IoIosInformationCircle size={20} />
+            </InlineButtonsItem>
+          </Link>
+          <Link className="flex flex-1" href={"catalog"}>
+            <InlineButtonsItem
+              className="flex-1 text-secondText hover:text-accentText transition-colors"
+              mode="plain"
+              text={t("cabinet")}
+            >
+              <Icon name="icon-person" width={24} height={24} />
+            </InlineButtonsItem>
+          </Link>
         </nav>
       </footer>
     </>

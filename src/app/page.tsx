@@ -1,15 +1,15 @@
 "use client";
 
-import UserContainer from "@/components/Sections/UserContainer";
+import UserContainer from "@/components/UserContainer";
 import Search from "@/components/Search/Search";
 import { Page } from "@/components/Page";
 import clsx from "clsx";
-import LoyaltyProgram from "@/components/Sections/LoyaltyProgram";
-import TopProducts from "@/components/Sections/TopProducts";
-import Review from "@/components/Sections/Review";
-import Banners from "@/components/Sections/Banners";
-import Links from "@/components/Sections/Links/Links";
-import Social from "@/components/Sections/Social";
+import LoyaltyProgram from "@/components/LoyaltyProgram";
+import TopProducts from "@/components/TopProducts";
+import Review from "@/Pages/main/Review";
+import Banners from "@/Pages/main/Banners";
+import Links from "@/Pages/main/Links/Links";
+import Social from "@/Pages/main/Social";
 
 export default function Home() {
   return (

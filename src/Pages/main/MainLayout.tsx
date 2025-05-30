@@ -1,9 +1,9 @@
 "use client";
 
-import Header from "@/components/Sections/Header";
+import Header from "@/components/Header";
 import { PropsWithChildren, useState } from "react";
 import clsx from "clsx";
-import Footer from "@/components/Sections/Footer";
+import Footer from "@/components/Footer";
 
 export default function MainLayout({ children }: PropsWithChildren) {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -16,8 +16,8 @@ export default function MainLayout({ children }: PropsWithChildren) {
         className={clsx(
           "bg-background transition-padding duration-300 ease-in-out",
           {
-            "pb-16": isCollapsedFooter,
-            "pb-[108px]": !isCollapsedFooter,
+            "pb-8": isCollapsedFooter,
+            "pb-[80px]": !isCollapsedFooter,
             "pt-16": isCollapsed,
             "pt-[108px]": !isCollapsed,
           }

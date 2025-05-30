@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import Icon from "@/helpers/Icon";
-import { Link } from "../Link/Link";
+import { Link } from "../../components/Link/Link";
 import { InlineButtonsItem } from "@telegram-apps/telegram-ui/dist/components/Blocks/InlineButtons/components/InlineButtonsItem/InlineButtonsItem";
 
 const Social = () => {

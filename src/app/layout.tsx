@@ -18,14 +18,12 @@ const localeMetadata: Record<
   uk: {
     title: "Mustage Store",
     description: "Mustage Store",
-    keywords:
-      "вакансії, робота, Mustage Team, digital-маркетинг, affiliate-маркетинг, кар’єра",
+    keywords: "Mustage Store",
   },
   ru: {
     title: "Mustage Store",
     description: "Mustage Store",
-    keywords:
-      "вакансии, работа, Mustage Team, digital-маркетинг, affiliate-маркетинг, карьера",
+    keywords: "Mustage Store",
   },
 };
 
