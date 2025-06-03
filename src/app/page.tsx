@@ -21,11 +21,11 @@ export default function Home() {
         <TopProducts />
       </div>
       <Review />
-      <div className={clsx("max-w-container mx-auto flex flex-col")}>
+      <section className={clsx("max-w-container mx-auto flex flex-col")}>
         <Banners />
         <Links />
         <Social />
-      </div>
+      </section>
     </Page>
   );
 }

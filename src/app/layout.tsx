@@ -40,41 +40,41 @@ export const generateMetadata = async () => {
       index: true,
       follow: true,
     },
-    twitter: {
-      card: "summary_large_image",
-      title: metadataValues.title,
-      description: metadataValues.description,
-      images: [
-        {
-          url: "/assets/opengraph-image.png",
-          width: 1200,
-          height: 630,
-          alt: metadataValues.title,
-        },
-      ],
-    },
-    openGraph: {
-      title: metadataValues.title,
-      description: metadataValues.description,
-      type: "website",
-      images: [
-        {
-          url: "/assets/opengraph-image.png",
-          width: 1200,
-          height: 630,
-          alt: metadataValues.title,
-        },
-      ],
-    },
-    icons: {
-      icon: [
-        { url: "/assets/favicon-96x96.png", sizes: "96x96", type: "image/png" },
-        { url: "/assets/favicon.svg", type: "image/svg+xml" },
-        { url: "/assets/favicon.ico", type: "image/x-icon" },
-        { url: "/assets/apple-touch-icon.png", sizes: "180x180" },
-      ],
-    },
-    manifest: `/assets/site.webmanifest`,
+    // twitter: {
+    //   card: "summary_large_image",
+    //   title: metadataValues.title,
+    //   description: metadataValues.description,
+    //   images: [
+    //     {
+    //       url: "/assets/opengraph-image.png",
+    //       width: 1200,
+    //       height: 630,
+    //       alt: metadataValues.title,
+    //     },
+    //   ],
+    // },
+    // openGraph: {
+    //   title: metadataValues.title,
+    //   description: metadataValues.description,
+    //   type: "website",
+    //   images: [
+    //     {
+    //       url: "/assets/opengraph-image.png",
+    //       width: 1200,
+    //       height: 630,
+    //       alt: metadataValues.title,
+    //     },
+    //   ],
+    // },
+    // icons: {
+    //   icon: [
+    //     { url: "/assets/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+    //     { url: "/assets/favicon.svg", type: "image/svg+xml" },
+    //     { url: "/assets/favicon.ico", type: "image/x-icon" },
+    //     { url: "/assets/apple-touch-icon.png", sizes: "180x180" },
+    //   ],
+    // },
+    // manifest: `/assets/site.webmanifest`,
   };
 };
 
@@ -130,6 +130,9 @@ export default async function RootLayout({ children }: PropsWithChildren) {
   const locale = await getLocale();
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <script src="https://telegram.org/js/telegram-web-app.js"></script>
+      </head>
       <body className={`${inter.variable} ${sfPro.variable}`}>
         <I18nProvider>
           <Root>

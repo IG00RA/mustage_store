@@ -7,25 +7,16 @@ import Icon from "@/helpers/Icon";
 import Image from "next/image";
 import showImg from "@/img/icons/show-img.svg";
 import hideImg from "@/img/icons/hide-img.svg";
+import facebook from "@/img/social/facebook.svg";
 import { Link } from "@/components/Link/Link";
+import { useStore } from "@/store";
 
-interface Category {
-  id: number;
-  title: string;
-  image: any;
-  alt: string;
-  link: string;
-}
-
-interface CategoryProps {
-  categories: Category[];
-}
-
-const CategorySection: React.FC<CategoryProps> = ({ categories }) => {
+const CategorySection = () => {
   const t = useTranslations("CategorySection");
   const [isListVisible, setIsListVisible] = useState(true);
   const [isImageVisible, setIsImageVisible] = useState(true);
   const [viewMode, setViewMode] = useState("list");
+  const { categories } = useStore();
 
   const toggleListVisibility = () => {
     setIsListVisible((prev) => !prev);
@@ -61,7 +52,7 @@ const CategorySection: React.FC<CategoryProps> = ({ categories }) => {
   };
 
   return (
-    <div className="mb-6 border-b border-solid border-[rgba(0,0,0,0.10)]">
+    <section className="mb-6 border-b border-solid border-[rgba(0,0,0,0.10)]">
       <div className="flex justify-between items-center pl-3 pb-4">
         <Button
           className="text-[rgba(0,0,0,0.80)] border-[1px] border-solid border-[#0000000D] transition-all duration-300"
@@ -117,29 +108,31 @@ const CategorySection: React.FC<CategoryProps> = ({ categories }) => {
         } ${viewMode === "grid" ? "grid grid-cols-2" : "flex flex-col"}`}
       >
         {categories.map((category) => (
-          <li key={category.id}>
+          <li key={category.account_category_id}>
             <Link
-              href={`#${category.link}`}
+              href={`#${category.account_category_id}`}
               className={`flex gap-3 items-center p-4 border rounded-[16px] border-solid border-[rgba(0,0,0,0.10)]`}
-              onClick={(e) => handleScroll(e, category.link)}
+              onClick={(e) =>
+                handleScroll(e, `${category.account_category_id}`)
+              }
             >
               {isImageVisible && (
                 <Image
-                  src={category.image}
-                  alt={category.alt}
+                  src={facebook}
+                  alt={"Facebook logo"}
                   width={48}
                   height={48}
                   sizes="100vw"
                 />
               )}
               <p className={`text-[12px] text-mainText font-bold`}>
-                {category.title}
+                {category.account_category_name}
               </p>
             </Link>
           </li>
         ))}
       </ul>
-    </div>
+    </section>
   );
 };
 

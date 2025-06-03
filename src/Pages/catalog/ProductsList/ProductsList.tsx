@@ -9,38 +9,16 @@ import { GoBell } from "react-icons/go";
 import Icon from "@/helpers/Icon";
 import showImg from "@/img/icons/show-img.svg";
 import hideImg from "@/img/icons/hide-img.svg";
+import facebook from "@/img/social/facebook.svg";
+import flag from "@/img/flags/ua.svg";
+import { useStore } from "@/store";
 
-interface Product {
-  id: number;
-  category: string;
-  title: string;
-  originalPrice: string;
-  discountedPrice: string;
-  stock: number;
-  image: any;
-  flag: any;
-  alt: string;
-}
-
-interface Category {
-  id: number;
-  title: string;
-  category: string;
-  image: any;
-  alt: string;
-  link: string;
-}
-
-interface ProductsProps {
-  products: Product[];
-  categories: Category[];
-}
-
-const Products: React.FC<ProductsProps> = ({ products, categories }) => {
+const Products = () => {
   const t = useTranslations("Products");
   const [isListVisible, setIsListVisible] = useState<boolean>(true);
   const [isImageVisible, setIsImageVisible] = useState<boolean>(true);
   const [viewMode, setViewMode] = useState<"list" | "grid">("list");
+  const { products, categories } = useStore();
 
   const toggleListVisibility = () => {
     setIsListVisible((prev) => !prev);
@@ -61,12 +39,12 @@ const Products: React.FC<ProductsProps> = ({ products, categories }) => {
   const groupedProducts = categories.map((category) => ({
     category,
     products: products.filter(
-      (product) => product.category === category.category
+      (product) => product.account_category_id === category.account_category_id
     ),
   }));
 
   return (
-    <div className="mb-6 border-b border-solid border-[rgba(0,0,0,0.10)]">
+    <section className="mb-6 border-b border-solid border-[rgba(0,0,0,0.10)]">
       <div className="flex justify-between items-center pl-3 pb-4">
         <Button
           className="text-[rgba(0,0,0,0.80)] border-[1px] border-solid border-[#0000000D] transition-all duration-300"
@@ -116,14 +94,14 @@ const Products: React.FC<ProductsProps> = ({ products, categories }) => {
       </div>
       {groupedProducts.map(({ category, products }) => (
         <div
-          id={category.link}
-          key={category.id}
+          id={`${category.account_category_id}`}
+          key={category.account_category_id}
           className={`transition-opacity duration-300 ease-in-out ${
             isListVisible ? "opacity-100" : "opacity-0 h-0 overflow-hidden"
           } `}
         >
-          <h2 className="text-[14px] font-semibold text-mainText mb-4 text-center leading-[150%] px-6 py-3 rounded-[12px] bg-[rgba(112,117,121,0.15)]">
-            {category.category}
+          <h2 className="text-[14px] font-semibold text-mainText mb-4 text-center leading-[150%] px-6 py-3 rounded-[12px] bg-[rgba(112,117,121,0.15)] uppercase">
+            {category.account_category_name}
           </h2>
           <ul
             className={`${
@@ -134,7 +112,7 @@ const Products: React.FC<ProductsProps> = ({ products, categories }) => {
           >
             {products.map((product, index) => (
               <li
-                key={`${category.id}-${product.id}-${index}`}
+                key={`${category.account_category_id}-${product.account_category_id}-${index}`}
                 className={`relative flex flex-col ${
                   viewMode === "grid" && index % 2 === 0
                     ? "pr-2 border-fake-right"
@@ -158,16 +136,16 @@ const Products: React.FC<ProductsProps> = ({ products, categories }) => {
                   {isImageVisible && viewMode === "list" && (
                     <div className="shrink-0 relative w-[56px] h-[56px] transition-opacity duration-300 ease-in-out">
                       <Image
-                        src={product.image}
-                        alt={product.alt}
+                        src={facebook}
+                        alt={"Facebook logo"}
                         width={56}
                         height={56}
                         sizes="100vw"
                       />
                       <Image
-                        src={product.flag}
+                        src={flag}
                         className="absolute bottom-[-1px] right-[-2px]"
-                        alt={product.alt}
+                        alt={"Flag icon"}
                         width={25}
                         height={18}
                         sizes="100vw"
@@ -179,16 +157,16 @@ const Products: React.FC<ProductsProps> = ({ products, categories }) => {
                       {isImageVisible && (
                         <div className="shrink-0 relative w-[52px] h-[52px] transition-opacity duration-300 ease-in-out">
                           <Image
-                            src={product.image}
-                            alt={product.alt}
+                            src={facebook}
+                            alt={"Facebook logo"}
                             width={52}
                             height={52}
                             sizes="100vw"
                           />
                           <Image
-                            src={product.flag}
+                            src={flag}
                             className="absolute bottom-[-1px] right-[-2px]"
-                            alt={product.alt}
+                            alt={"Flag icon"}
                             width={25}
                             height={18}
                             sizes="100vw"
@@ -310,7 +288,7 @@ const Products: React.FC<ProductsProps> = ({ products, categories }) => {
           </ul>
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 

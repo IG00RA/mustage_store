@@ -19,7 +19,7 @@ const Review = () => {
   };
 
   return (
-    <div
+    <section
       className=" pb-2 mb-6"
       style={{
         borderBottom: "1px solid rgba(0, 0, 0, 0.10)",
@@ -102,7 +102,7 @@ const Review = () => {
           </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

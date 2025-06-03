@@ -6,7 +6,7 @@ const Social = () => {
 
   return (
     <ul className="flex flex-wrap gap-2 items-center mb-6">
-      <LinkCard text={t("loyaltyProgram")} href={"/"} />
+      <LinkCard text={t("loyaltyProgram")} href={"loyalty"} />
       <LinkCard text={t("partners")} href={"/"} />
       <LinkCard text={t("returns")} href={"/"} />
       <LinkCard text={t("proxy")} href={"/"} />

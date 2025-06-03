@@ -68,5 +68,74 @@
     "btn": "Подробнее",
     "btnBye": "Купить",
     "btnCart": "В корзину"
+  },
+  "LoyaltyTable": {
+    "levels_statuses": "Уровни/Статусы",
+    "buySum": "Сумма покупок",
+    "bonuses": "Бонусы",
+    "sales": "Скидка %",
+    "optPrices": "Опт. Цены",
+    "level_0": {
+      "level": "0/Нулевый",
+      "price": "до $100"
+    },
+    "level_1": {
+      "level": "0/Стартер",
+      "price": "от $100"
+    },
+    "level_2": {
+      "level": "0/Постоянный",
+      "price": "от $200"
+    },
+    "level_3": {
+      "level": "0/Бронзовый",
+      "price": "от $300"
+    },
+    "level_4": {
+      "level": "0/Серебряный",
+      "price": "от $400"
+    },
+    "level_5": {
+      "level": "0/Золотой",
+      "price": "от $500"
+    },
+    "level_6": {
+      "level": "0/Платиновый",
+      "price": "от $600"
+    },
+    "level_7": {
+      "level": "0/Рубиновый",
+      "price": "от $700"
+    },
+    "level_8": {
+      "level": "0/Сапфировый",
+      "price": "от $800"
+    },
+    "level_9": {
+      "level": "0/Бриллиантовый",
+      "price": "от $900"
+    },
+    "level_10": {
+      "level": "0/Премиум",
+      "price": "от $1000"
+    },
+    "level_11": {
+      "level": "11/Оптовик",
+      "price": "от $3000"
+    },
+    "discount_0": "0%",
+    "discount_1": "1%",
+    "discount_2": "2%",
+    "discount_3": "3%",
+    "discount_4": "4%",
+    "discount_5": "5%",
+    "discount_6": "6%",
+    "discount_7": "7%",
+    "discount_8": "8%",
+    "discount_9": "9%",
+    "discount_10": "10%",
+    "discount_max": "Макс.",
+    "bonuses_unavailable": "Недоступны",
+    "bonuses_available": "Доступны"
   }
 }
