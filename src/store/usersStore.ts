@@ -11,13 +11,12 @@ interface AuthResponse {
 export const useUsersStore = create<UsersState>((set) => {
   const fetchUserData = async (): Promise<User> => {
     const headers = getAuthHeaders();
-    console.log("Fetching /users/me with headers:", headers);
+
     return fetchWithErrorHandling<User>(
       `${ENDPOINTS.USERS}/me`,
       {
         method: "GET",
         headers,
-        credentials: "include",
       },
       (state) => set(state)
     );
@@ -34,7 +33,6 @@ export const useUsersStore = create<UsersState>((set) => {
       set({ loading: true, error: null });
       try {
         const url = `${ENDPOINTS.USERS}/init`;
-        console.log("Sending /users/init with body:", { init_data: initData });
 
         const data = await fetchWithErrorHandling<AuthResponse>(
           url,
@@ -48,12 +46,10 @@ export const useUsersStore = create<UsersState>((set) => {
           (state) => set(state)
         );
 
-        console.log("Received access_token:", data.access_token);
         document.cookie = `access_token=${data.access_token}; path=/; max-age=${
           60 * 60 * 24 * 30
         }; secure; samesite=strict`;
 
-        console.log("Fetching /users/me after init...");
         const userData = await fetchUserData();
 
         set({
@@ -71,7 +67,6 @@ export const useUsersStore = create<UsersState>((set) => {
       }
     },
 
-    // Метод для отримання даних поточного користувача
     fetchCurrentUser: async (): Promise<User> => {
       set({ loading: true, error: null });
       try {
